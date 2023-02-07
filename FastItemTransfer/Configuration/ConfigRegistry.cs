@@ -13,7 +13,7 @@ namespace FastItemTransfer.Configuration
         
         public static Waiting Waiter;
 
-        public ConfigRegistry(IPluginInfo mod): base(mod)
+        public ConfigRegistry(IPluginInfo mod, bool enableLockedConfigs = false): base(mod, enableLockedConfigs)
         {
             //Waiting For Startup
             Waiter = new Waiting();

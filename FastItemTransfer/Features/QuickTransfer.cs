@@ -15,23 +15,15 @@ public class QuickTransfer
     
     static QuickTransfer()
     {
-        if (!Chainloader.PluginInfos.ContainsKey("vapok.mods.adventurebackpacks"))
-        {
-            ConfigRegistry.Waiter.StatusChanged += (_, _) => RegisterConfiguraitonFile();
-        }
-        else
-        {
-            ConfigRegistry.Waiter.StatusChanged += (_, _) => FeatureInitialized = false;
-        }
+        ConfigRegistry.Waiter.StatusChanged += (_, _) => RegisterConfiguraitonFile();
     }
 
     private static void RegisterConfiguraitonFile()
     {
-        EnableQuickTransfer = ConfigSyncBase.UnsyncedConfig("Local Config", "Enable Quick Right Click Item Transfer", false,
+        EnableQuickTransfer = ConfigSyncBase.UnsyncedConfig("Local Config", "Enable Quick Right Click Item Transfer", true,
             new ConfigDescription("When enabled, can move items to/from player inventory to container, by right clicking.",
                 null,
                 new ConfigurationManagerAttributes { Order = 5 }));
-
     }
 
     [HarmonyPatch(typeof(InventoryGui), nameof(InventoryGui.OnRightClickItem))]

@@ -8,16 +8,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Module Files", "Module File
 		manifest.json = manifest.json
 		icon.png = icon.png
 		PATCHNOTES.md = PATCHNOTES.md
+		LICENSE.md = LICENSE.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Translations", "Translations", "{453B1EE0-9980-4B66-93B3-2DDBD21FEE03}"
-	ProjectSection(SolutionItems) = preProject
-		Translations\FastItemTransfer.French.json = Translations\FastItemTransfer.French.json
-		Translations\FastItemTransfer.German.json = Translations\FastItemTransfer.German.json
-		Translations\FastItemTransfer.Norwegian.json = Translations\FastItemTransfer.Norwegian.json
-		Translations\FastItemTransfer.Russian.json = Translations\FastItemTransfer.Russian.json
-		Translations\FastItemTransfer.Korean.json = Translations\FastItemTransfer.Korean.json
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
