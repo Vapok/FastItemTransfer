@@ -9,7 +9,7 @@ using Vapok.Common.Shared;
 
 namespace FastItemTransfer.Features;
 
-public class QuickTransfer
+public static class QuickTransfer
 {
     public static bool FeatureInitialized = false;
     public static ConfigEntry<bool> EnableQuickTransfer { get; private set;}
@@ -22,10 +22,10 @@ public class QuickTransfer
     
     static QuickTransfer()
     {
-        ConfigRegistry.Waiter.StatusChanged += (_, _) => RegisterConfiguraitonFile();
+        ConfigRegistry.Waiter.StatusChanged += (_, _) => RegisterConfigurationFile();
     }
 
-    private static void RegisterConfiguraitonFile()
+    private static void RegisterConfigurationFile()
     {
         EnableQuickTransfer = ConfigSyncBase.UnsyncedConfig("Local Config", "Enable Quick Right Click Item Transfer", true,
             new ConfigDescription("When enabled, can move items to/from player inventory to container, by right clicking.",
@@ -85,6 +85,7 @@ public class QuickTransfer
             _toInventory = null;
             _fromInventory = null;
             _inventoryGuiInstance = null;
+            
         }
     }
     
