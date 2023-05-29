@@ -1,5 +1,8 @@
 # Fast Item Transfer Patchnotes
 
+# 1.0.3 - Valheim Updates
+* Updates to Valheim 0.216.7
+
 # 1.0.2 - Valheim and BepInEx Updates
 * Updates to Valheim 0.214.2
 * Updates to BepInEx 5.4.21

@@ -54,7 +54,7 @@ public static class QuickTransfer
                 return;
             }
 
-            if (item.m_equiped)
+            if (item.m_equipped)
                 return;
 
             var containerInventory = __instance.m_currentContainer.GetInventory();
