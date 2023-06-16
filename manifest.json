@@ -1,6 +1,6 @@
 {
   "name": "FastItemTransfer",
-  "version_number": "1.0.2",
+  "version_number": "1.0.3",
   "website_url": "https://github.com/Vapok/FastItemTransfer",
   "description": "A Valheim Quality of Life Mod that provides Right Click functionality to move items between Player Inventory and Containers",
   "dependencies": [
