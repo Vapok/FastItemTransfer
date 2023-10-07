@@ -1,5 +1,8 @@
 # Fast Item Transfer Patchnotes
 
+# 1.0.4 - Valheim Updates
+* Updates to Valheim 0.217.24
+
 # 1.0.3 - Valheim Updates
 * Updates to Valheim 0.216.9
 
