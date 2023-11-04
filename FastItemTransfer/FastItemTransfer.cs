@@ -19,7 +19,7 @@ namespace FastItemTransfer
         //Module Constants
         private const string _pluginId = "vapok.mods.fastitemtransfer";
         private const string _displayName = "Fast Item Transfer";
-        private const string _version = "1.0.4";
+        private const string _version = "1.0.5";
         
         //Interface Properties
         public string PluginId => _pluginId;
@@ -90,7 +90,6 @@ namespace FastItemTransfer
         private void OnDestroy()
         {
             _instance = null;
-            _harmony?.UnpatchSelf();
         }
 
         public class Waiting
