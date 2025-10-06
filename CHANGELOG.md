@@ -1,5 +1,8 @@
 # Fast Item Transfer Patchnotes
 
+# 1.1.0 - Replaces ServerSync for JotunnVL
+* Updates to Valheim 0.221.4
+
 # 1.0.5 - Valheim Updates
 * Updates to Valheim 0.217.28
 

@@ -12,7 +12,7 @@ namespace FastItemTransfer.Features;
 public static class QuickTransfer
 {
     public static bool FeatureInitialized = false;
-    public static ConfigEntry<bool> EnableQuickTransfer { get; private set;}
+    public static ConfigEntry<bool> EnableQuickTransfer;
 
     private static InventoryGui _inventoryGuiInstance;
     private static Inventory _fromInventory;
@@ -30,7 +30,7 @@ public static class QuickTransfer
         EnableQuickTransfer = ConfigSyncBase.UnsyncedConfig("Local Config", "Enable Quick Right Click Item Transfer", true,
             new ConfigDescription("When enabled, can move items to/from player inventory to container, by right clicking.",
                 null,
-                new ConfigurationManagerAttributes { Order = 5 }));
+                new ConfigurationManagerAttributes { Order = 5 }),ref EnableQuickTransfer);
     }
 
     [HarmonyPatch(typeof(InventoryGui), nameof(InventoryGui.OnRightClickItem))]
