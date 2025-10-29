@@ -27,7 +27,7 @@ public static class QuickTransfer
 
     private static void RegisterConfigurationFile()
     {
-        EnableQuickTransfer = ConfigSyncBase.UnsyncedConfig("Local Config", "Enable Quick Right Click Item Transfer", true,
+        ConfigSyncBase.UnsyncedConfig("Local Config", "Enable Quick Right Click Item Transfer", true,
             new ConfigDescription("When enabled, can move items to/from player inventory to container, by right clicking.",
                 null,
                 new ConfigurationManagerAttributes { Order = 5 }),ref EnableQuickTransfer);

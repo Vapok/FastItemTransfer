@@ -14,12 +14,14 @@ using Vapok.Common.Managers.LocalizationManager;
 namespace FastItemTransfer
 {
     [BepInPlugin(_pluginId, _displayName, _version)]
+    [BepInDependency(Jotunn.Main.ModGuid)]
+    [BepInDependency("com.ValheimModding.YamlDotNetDetector")]
     public class FastItemTransfer : BaseUnityPlugin, IPluginInfo
     {
         //Module Constants
         private const string _pluginId = "vapok.mods.fastitemtransfer";
         private const string _displayName = "Fast Item Transfer";
-        private const string _version = "1.1.0";
+        private const string _version = "1.1.1";
         
         //Interface Properties
         public string PluginId => _pluginId;
