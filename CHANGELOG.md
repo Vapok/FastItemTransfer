@@ -1,5 +1,10 @@
 # Fast Item Transfer Patchnotes
 
+## 1.1.2 - Resolving an item duplication issue.
+* This mod was causing an item duplication issue when paired with specific other mods.
+  * This has been resolved.
+* Updated Dependencies
+
 ## 1.1.1 - Fixing Dedicated Server Config Syncing
 * A regression issue was introduced when switching to Jotunn preventing servers from dictating configs to clients.
   * This has been resolved.

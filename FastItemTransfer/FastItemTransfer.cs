@@ -16,12 +16,13 @@ namespace FastItemTransfer
     [BepInPlugin(_pluginId, _displayName, _version)]
     [BepInDependency(Jotunn.Main.ModGuid)]
     [BepInDependency("com.ValheimModding.YamlDotNetDetector")]
+    [BepInIncompatibility("vapok.mods.adventurebackpacks")]
     public class FastItemTransfer : BaseUnityPlugin, IPluginInfo
     {
         //Module Constants
         private const string _pluginId = "vapok.mods.fastitemtransfer";
         private const string _displayName = "Fast Item Transfer";
-        private const string _version = "1.1.1";
+        private const string _version = "1.1.2";
         
         //Interface Properties
         public string PluginId => _pluginId;
@@ -50,8 +51,11 @@ namespace FastItemTransfer
             //Waiting For Startup
             Waiter = new Waiting();
             
+            //Jotunn Localization
+            var localization = Jotunn.Managers.LocalizationManager.Instance.GetLocalization();
+            
             //Initialize Managers
-            Localizer.Init();
+            Localizer.Init(localization);
 
             //Register Configuration Settings
             _config = new ConfigRegistry(_instance);
