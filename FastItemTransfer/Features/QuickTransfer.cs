@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using BepInEx.Bootstrap;
 using BepInEx.Configuration;
 using FastItemTransfer.Configuration;
@@ -98,8 +98,21 @@ public static class QuickTransfer
             if (!_processingRightClick)
                 return true;
 
+            // Defensive: clear flag if state was lost (e.g. exception in OnRightClickItem path)
+            if (_toInventory == null || _fromInventory == null || _inventoryGuiInstance == null)
+            {
+                _processingRightClick = false;
+                return true;
+            }
+
             _toInventory.MoveItemToThis(_fromInventory, item);
             _inventoryGuiInstance.m_moveItemEffects.Create(_inventoryGuiInstance.transform.position, Quaternion.identity);
+
+            // Must clear state so next UseItem (e.g. consuming item) runs normally. Finalizer only runs on exception.
+            _processingRightClick = false;
+            _toInventory = null;
+            _fromInventory = null;
+            _inventoryGuiInstance = null;
 
             return false;
         }

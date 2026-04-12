@@ -1,5 +1,12 @@
 # Fast Item Transfer Patchnotes
 
+## 1.1.3 - Valheim & Dependency Maintenance
+* Updated to Valheim 0.221.12 references.
+* Updated Vapok.Valheim.Common to 2.11.22112.
+* Updated Jotunn to 2.29.0.
+* Updated YamlDotNet to 16.3.1.
+* Fixed: Right-click transfer state was never cleared on success, so the next UseItem (e.g. consuming item, using tool) could be skipped. State is now cleared after transfer and defensive null checks added.
+
 ## 1.1.2 - Resolving an item duplication issue.
 * This mod was causing an item duplication issue when paired with specific other mods.
   * This has been resolved.
