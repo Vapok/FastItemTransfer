@@ -3,23 +3,26 @@ using System;
 using System.Reflection;
 using BepInEx;
 using HarmonyLib;
-using JetBrains.Annotations;
 using FastItemTransfer.Configuration;
 using FastItemTransfer.Features;
+using Jotunn.Managers;
 using Vapok.Common.Abstractions;
 using Vapok.Common.Managers;
 using Vapok.Common.Managers.Configuration;
 using Vapok.Common.Managers.LocalizationManager;
+using Vapok.Common.Tools;
 
 namespace FastItemTransfer
 {
     [BepInPlugin(_pluginId, _displayName, _version)]
+    [BepInDependency(Jotunn.Main.ModGuid)]
+    [BepInDependency("com.ValheimModding.YamlDotNetDetector")]
     public class FastItemTransfer : BaseUnityPlugin, IPluginInfo
     {
         //Module Constants
         private const string _pluginId = "vapok.mods.fastitemtransfer";
         private const string _displayName = "Fast Item Transfer";
-        private const string _version = "1.0.3";
+        private const string _version = "2.0.0";
         
         //Interface Properties
         public string PluginId => _pluginId;
@@ -38,7 +41,6 @@ namespace FastItemTransfer
         private static ILogIt _log;
         private Harmony _harmony;
         
-        [UsedImplicitly]
         // This the main function of the mod. BepInEx will call this.
         private void Awake()
         {
@@ -48,14 +50,17 @@ namespace FastItemTransfer
             //Waiting For Startup
             Waiter = new Waiting();
             
-            //Initialize Managers
-            Localizer.Init();
-
-            //Register Configuration Settings
-            _config = new ConfigRegistry(_instance);
+            //Jotunn Localization
+            var localization = LocalizationManager.Instance.GetLocalization();
 
             //Register Logger
             LogManager.Init(PluginId,out _log);
+
+            //Initialize Managers
+            Initializer.LoadManagers(localization);
+
+            //Register Configuration Settings
+            _config = new ConfigRegistry(_instance);
 
             Localizer.Waiter.StatusChanged += InitializeModule;
             
@@ -69,12 +74,6 @@ namespace FastItemTransfer
             //???
 
             //Profit
-        }
-        
-        private void Update()
-        {
-            if (!Player.m_localPlayer || !ZNetScene.instance)
-                return;
         }
 
         public void InitializeModule(object send, EventArgs args)

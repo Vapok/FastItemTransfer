@@ -12,14 +12,18 @@ namespace FastItemTransfer.Features;
 public static class QuickTransfer
 {
     public static bool FeatureInitialized = false;
-    public static ConfigEntry<bool> EnableQuickTransfer { get; private set;}
+    public static ConfigEntry<bool> EnableQuickTransfer;
 
     private static InventoryGui _inventoryGuiInstance;
     private static Inventory _fromInventory;
     private static Inventory _toInventory;
 
     private static bool _processingRightClick = false;
-    
+    private static ConfigEntry<bool> _abpQuickTransferEntry;
+    private static bool _abpChecked = false;
+    private static bool _hasBlumayeMod = false;
+    private static bool _blumayeChecked = false;
+
     static QuickTransfer()
     {
         ConfigRegistry.Waiter.StatusChanged += (_, _) => RegisterConfigurationFile();
@@ -27,10 +31,43 @@ public static class QuickTransfer
 
     private static void RegisterConfigurationFile()
     {
-        EnableQuickTransfer = ConfigSyncBase.UnsyncedConfig("Local Config", "Enable Quick Right Click Item Transfer", true,
+        ConfigSyncBase.UnsyncedConfig("Local Config", "Enable Quick Right Click Item Transfer", true,
             new ConfigDescription("When enabled, can move items to/from player inventory to container, by right clicking.",
                 null,
-                new ConfigurationManagerAttributes { Order = 5 }));
+                new ConfigurationManagerAttributes { Order = 5 }), ref EnableQuickTransfer);
+    }
+
+    private static bool IsHandledByAdventureBackpacks()
+    {
+        if (!_abpChecked)
+        {
+            if (Chainloader.PluginInfos.TryGetValue("vapok.mods.adventurebackpacks", out var pluginInfo) && pluginInfo?.Instance != null)
+            {
+                pluginInfo.Instance.Config.TryGetEntry("Local Config", "Enable Quick Right Click Item Transfer", out _abpQuickTransferEntry);
+                _abpChecked = _abpQuickTransferEntry != null;
+            }
+            else
+            {
+                _abpChecked = true;
+            }
+        }
+
+        return _abpQuickTransferEntry != null && _abpQuickTransferEntry.Value;
+    }
+
+    private static bool HasBlumayeMod()
+    {
+        if (!_blumayeChecked)
+        {
+            _hasBlumayeMod = Chainloader.PluginInfos.ContainsKey("blumaye.quicktransfer");
+            _blumayeChecked = true;
+            if (_hasBlumayeMod)
+            {
+                FastItemTransfer.Log.Warning("blumaye.quicktransfer mod is enabled. Fast Item Transfer disabled.");
+            }
+        }
+
+        return _hasBlumayeMod;
     }
 
     [HarmonyPatch(typeof(InventoryGui), nameof(InventoryGui.OnRightClickItem))]
@@ -48,11 +85,11 @@ public static class QuickTransfer
             if (__instance.m_currentContainer == null || !__instance.IsContainerOpen() || !EnableQuickTransfer.Value)
                 return;
 
-            if (Chainloader.PluginInfos.ContainsKey("blumaye.quicktransfer"))
-            {
-                FastItemTransfer.Log.Warning("blumaye.quicktransfer mod is enabled. Fast Item Transfer disabled.");
+            if (HasBlumayeMod())
                 return;
-            }
+
+            if (IsHandledByAdventureBackpacks())
+                return;
 
             if (item.m_equipped)
                 return;
@@ -70,10 +107,14 @@ public static class QuickTransfer
                 _fromInventory = containerInventory;
                 _toInventory = playerInventory;
             }
-            else
+            else if (grid.m_inventory == playerInventory)
             {
                 _fromInventory = playerInventory;
                 _toInventory = containerInventory;
+            }
+            else
+            {
+                return;
             }
 
             _processingRightClick = true;
@@ -85,7 +126,6 @@ public static class QuickTransfer
             _toInventory = null;
             _fromInventory = null;
             _inventoryGuiInstance = null;
-            
         }
     }
     
@@ -98,8 +138,16 @@ public static class QuickTransfer
             if (!_processingRightClick)
                 return true;
 
+            if (_toInventory == null || _fromInventory == null || _inventoryGuiInstance == null || item == null)
+                return true;
+
+            int originalStack = item.m_stack;
             _toInventory.MoveItemToThis(_fromInventory, item);
-            _inventoryGuiInstance.m_moveItemEffects.Create(_inventoryGuiInstance.transform.position, Quaternion.identity);
+
+            if (!_fromInventory.ContainsItem(item) || item.m_stack < originalStack)
+            {
+                _inventoryGuiInstance.m_moveItemEffects.Create(_inventoryGuiInstance.transform.position, Quaternion.identity);
+            }
 
             return false;
         }
