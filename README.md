@@ -1,57 +1,99 @@
-# Fast Item Transfer by Vapok
+<div align="center">
 
-**Fast Item Transfer** is a lightweight, seamless quality-of-life mod for Valheim that enables instant item movement between the player's inventory and open containers (chests, carts, ships, etc.) using a simple right-click.
+# ⚡ Fast Item Transfer
 
-Designed with performance and compatibility in mind, it provides smooth, responsive inventory management with zero per-frame overhead and smart cross-mod detection.
+### *Seamless, instant one-click inventory and container item movement for Valheim.*
 
----
-
-## ✨ Features
-
-* **Instant One-Click Transfer**: Right-click any unequipped item in your player inventory while a container is open to instantly send it to the container. Right-click an item in a container to instantly send it to your player inventory.
-* **Smart Stacking**: Items automatically merge into existing matching stacks in the target inventory or populate the first available slot.
-* **Audio & Visual Feedback**: Plays vanilla item transfer sounds and particle effects upon successful item moves.
-* **Zero Performance Impact**: Operates strictly on user interaction without any per-frame update loops or polling overhead.
-* **Real-Time Configuration**: Toggle the mod on or off on the fly using the in-game [BepInEx Configuration Manager](https://github.com/BepInEx/BepInEx.ConfigurationManager) (default hotkey: `F1`).
+[![GitHub Release](https://img.shields.io/github/v/release/Vapok/FastItemTransfer?include_prereleases&logo=github&style=for-the-badge)](https://github.com/Vapok/FastItemTransfer/releases)
+[![Thunderstore Version](https://img.shields.io/thunderstore/v/Vapok/FastItemTransfer?logo=thunderstore&style=for-the-badge)](https://thunderstore.io/c/valheim/p/Vapok/FastItemTransfer/)
+[![Discord](https://img.shields.io/badge/Discord-Join%20Community-7289da?logo=discord&logoColor=white&style=for-the-badge)](https://discord.gg/5YAJkRFBXt)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 ---
 
-## 🧩 Cross-Mod Compatibility & Integrations
+</div>
 
-Fast Item Transfer is built to play nicely with your modded Valheim setup:
-
-* **🎒 [AdventureBackpacks](https://valheim.thunderstore.io/package/Vapok/AdventureBackpacks/)**:
-  * **Dynamic Coexistence**: Fast Item Transfer includes built-in live detection for AdventureBackpacks. If AdventureBackpacks is installed and its *Quick Transfer* configuration is active, Fast Item Transfer will automatically defer and let AdventureBackpacks handle right-click transfers without conflicts or double-moves. If AdventureBackpacks has Quick Transfer disabled, Fast Item Transfer will seamlessly handle transfers as normal.
-* **📦 Quick Stack, Store & Sort Mods**:
-  * Compatible with mods such as **Quick Stack Store**, **Auto Split Stack**, and **Quick Stack Sort**.
-* **🛡️ Custom Inventory & Equipment Slot Mods**:
-  * Explicit grid-validation safeguards prevent unintended interactions with custom inventory grids or special slot extensions (e.g., Jewelcrafting, Equipment and Quick Slots).
-* **⚠️ Conflicting Standalone Mods**:
-  * Automatically detects and gracefully yields if conflicting legacy plugins (such as `blumaye.quicktransfer`) are detected in your load order.
+Say goodbye to tedious drag-and-drop inventory sorting! **Fast Item Transfer** gives you instant, responsive one-click item management. Simply right-click any item in your inventory or open container to swiftly move single items or stacks back and forth with zero friction.
 
 ---
 
-## 📦 Installation
+## 🖱️ How It Works
 
-### Automatic Installation (Recommended)
-Install using your preferred mod manager (e.g., [r2modman](https://valheim.thunderstore.io/package/ebkr/r2modman/) or [Thunderstore Mod Manager](https://www.overwolf.com/app/Thunderstore-Thunderstore_Mod_Manager)).
+* 📦 **Instant One-Click Transfer**: <kbd>Right-Click</kbd> any unequipped item in your player inventory while a container (chest, cart, ship hold, etc.) is open to instantly send it to the container. <kbd>Right-Click</kbd> an item in a container to instantly send it to your player inventory.
+* 🥞 **Smart Stacking**: Items automatically merge into existing matching stacks in the target container or populate the first available slot.
+* 🔊 **Audio & Visual Polish**: Plays vanilla item transfer sounds and particle effects upon successful item moves.
+* ⚡ **Zero Performance Impact**: Operates strictly on user click interactions without any background update polling or CPU overhead.
+
+---
+
+## 🕹️ Interaction Controls
+
+| Action | Control / Keybind | Description |
+| :--- | :--- | :--- |
+| **Transfer to Container** | <kbd>Right-Click</kbd> (on item) | Moves clicked item/stack from Player Inventory into open container. |
+| **Transfer to Player** | <kbd>Right-Click</kbd> (on item) | Moves clicked item/stack from container into Player Inventory. |
+| **Toggle Mod Active** | Configurable via <kbd>F1</kbd> | Enable or disable fast transfer functionality on the fly. |
+
+---
+
+## 🛡️ Advanced Mechanics & Safeguards
+
+* 🎒 **Dynamic AdventureBackpacks Integration**:
+  * Automatically detects if [AdventureBackpacks](https://thunderstore.io/c/valheim/p/Vapok/AdventureBackpacks/) is installed. If AdventureBackpacks has its *Quick Transfer* setting enabled, Fast Item Transfer intelligently defers handling to prevent duplicate moves or sound overlap.
+* 💎 **Third-Party Grid Protection**:
+  * Safely ignores custom modded inventory panels (such as Equipment & Quick Slots, Jewelcrafting sockets, and custom bag panels) to prevent accidental item transfers.
+* 🚫 **Competing Mod Optimization**:
+  * Cached detection for competing quick transfer mods (`blumaye.quicktransfer`) to eliminate per-click lookups and prevent log flooding.
+
+---
+
+## 🤝 Verified Mod Compatibility
+
+<div align="center">
+
+| Mod | Compatibility Status |
+| :--- | :--- |
+| **AdventureBackpacks** | 🟢 Fully Supported (Dynamic coexistence & automatic deferral) |
+| **Auto Split Stack** | 🟢 Fully Supported |
+| **Quick Stack, Store & Sort** | 🟢 Fully Supported |
+| **Multi-User-Chests (MUC)** | 🟢 Fully Supported |
+| **Equipment & Quick Slots** | 🟢 Fully Supported |
+| **Jewelcrafting** | 🟢 Fully Supported |
+
+</div>
+
+---
+
+## 🌐 Available Translations
+
+<div align="center">
+
+🇺🇸 **English** • 🇩🇪 **German** • 🇫🇷 **French** • 🇪🇸 **Spanish** • 🇨🇳 **Chinese** • 🇷🇺 **Russian**
+
+</div>
+
+---
+
+## 📥 Installation
+
+### Mod Manager (Recommended)
+1. Install via **R2ModMan** or **Thunderstore Mod Manager**.
+2. Dependencies (`BepInExPack`, `Jotunn (JVL)`) are installed automatically.
 
 ### Manual Installation
-1. Ensure [BepInEx Pack for Valheim](https://valheim.thunderstore.io/package/denikson/BepInExPack_Valheim/) and [Jötunn, the Valheim Library](https://valheim.thunderstore.io/package/ValheimModding/Jotunn/) are installed.
-2. Download the latest release package from [Thunderstore](https://valheim.thunderstore.io/package/Vapok/FastItemTransfer/) or [GitHub Releases](https://github.com/Vapok/FastItemTransfer/releases).
-3. Extract `FastItemTransfer.dll` into your `Valheim/BepInEx/plugins/` directory (or create a `FastItemTransfer` subfolder).
+* Copy `FastItemTransfer.dll` to your `Valheim/BepInEx/plugins` directory.
 
 ---
 
-## 📋 Patch Notes
-See the full changelog in [CHANGELOG.md](https://github.com/Vapok/FastItemTransfer/blob/main/CHANGELOG.md) or on [Thunderstore](https://thunderstore.io/c/valheim/p/Vapok/FastItemTransfer/changelog/).
+<div align="center">
 
----
+### 👨‍💻 Created by Vapok Gaming
 
-## 👥 Credits & Contact
+[![Vapok Gaming](https://avatars.githubusercontent.com/u/1264136?s=120&v=4)](https://github.com/Vapok)
 
-![Vapok Gaming](https://avatars.githubusercontent.com/u/1264136?s=180&v=4)
+**Author**: [Vapok](https://github.com/Vapok)  
+**Source Code**: [GitHub Repository](https://github.com/Vapok/FastItemTransfer)  
+**Community & Support**: [Discord Server](https://discord.gg/5YAJkRFBXt)  
+**Changelog**: [Release Notes](https://github.com/Vapok/FastItemTransfer/blob/main/CHANGELOG.md)
 
-* **Mod Author**: [Vapok](https://github.com/Vapok)
-* **Source Code**: [GitHub Repository](https://github.com/Vapok/FastItemTransfer)
-* **Discord Community**: [Vapok's Mod Community](https://discord.gg/5YAJkRFBXt)
+</div>
