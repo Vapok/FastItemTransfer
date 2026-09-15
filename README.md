@@ -68,9 +68,11 @@ Say goodbye to tedious drag-and-drop inventory sorting! **Fast Item Transfer** g
 
 <div align="center">
 
-🇺🇸 **English** • 🇩🇪 **German** • 🇫🇷 **French** • 🇪🇸 **Spanish** • 🇨🇳 **Chinese** • 🇷🇺 **Russian**
+🇺🇸 **English** (Default)
 
 </div>
+
+*Want to help translate Fast Item Transfer? Community translations are welcome! Please submit a PR on [GitHub](https://github.com/Vapok/FastItemTransfer) or stop by our [Discord](https://discord.gg/5YAJkRFBXt).*
 
 ---
 
