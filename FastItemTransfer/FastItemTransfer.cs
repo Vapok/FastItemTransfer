@@ -10,6 +10,7 @@ using Vapok.Common.Abstractions;
 using Vapok.Common.Managers;
 using Vapok.Common.Managers.Configuration;
 using Vapok.Common.Managers.LocalizationManager;
+using Vapok.Common.Managers.Splash;
 using Vapok.Common.Tools;
 
 namespace FastItemTransfer
@@ -22,7 +23,7 @@ namespace FastItemTransfer
         //Module Constants
         private const string _pluginId = "vapok.mods.fastitemtransfer";
         private const string _displayName = "Fast Item Transfer";
-        private const string _version = "2.0.1";
+        private const string _version = "2.0.2";
         
         //Interface Properties
         public string PluginId => _pluginId;
@@ -61,6 +62,13 @@ namespace FastItemTransfer
 
             //Register Configuration Settings
             _config = new ConfigRegistry(_instance);
+
+            ModSplashManager.Register(new ModSplashDossier(_instance)
+            {
+                Tagline = "Fast one-click inventory and container item transfers for seamless chest management.",
+                ShowOnStartup = ConfigRegistry.ShowSplashOnStartup,
+                EnableTelemetry = ConfigRegistry.EnableTelemetry,
+            });
 
             Localizer.Waiter.StatusChanged += InitializeModule;
             
