@@ -23,7 +23,7 @@ Say goodbye to tedious drag-and-drop inventory sorting! **Fast Item Transfer** g
 
 <br>
 
-[![Survival Servers](https://raw.githubusercontent.com/Vapok/FastItemTransfer/refs/heads/main/images/survivalservers_banner.png)](https://www.survivalservers.com/services/game_servers/valheim/?ref=vapok)
+[![Survival Servers](https://raw.githubusercontent.com/Vapok/FastItemTransfer/main/images/survivalservers_banner.png)](https://www.survivalservers.com/services/game_servers/valheim/?ref=vapok)
 
 </div>
 
