@@ -4,8 +4,6 @@
 
 ### *Seamless, instant one-click inventory and container item movement for Valheim.*
 
-[![Survival Servers](https://ibin.co/5RCcxHBNFp)](https://www.survivalservers.com/services/game_servers/valheim/?ref=vapok)
-
 [![GitHub Release](https://img.shields.io/github/v/release/Vapok/FastItemTransfer?include_prereleases&logo=github&style=for-the-badge)](https://github.com/Vapok/FastItemTransfer/releases)
 [![Thunderstore Version](https://img.shields.io/thunderstore/v/Vapok/FastItemTransfer?logo=thunderstore&style=for-the-badge)](https://thunderstore.io/c/valheim/p/Vapok/FastItemTransfer/)
 [![Nexus Mods](https://img.shields.io/badge/Nexus_Mods-Available-da8e35?logo=nexusmods&style=for-the-badge)](https://www.nexusmods.com/valheim/mods/2250)
@@ -20,6 +18,14 @@
 Say goodbye to tedious drag-and-drop inventory sorting! **Fast Item Transfer** gives you instant, responsive one-click item management. Simply right-click any item in your inventory or open container to swiftly move single items or stacks back and forth with zero friction.
 
 ---
+
+<div align="center">
+
+<br>
+
+[![Survival Servers](https://raw.githubusercontent.com/Vapok/FastItemTransfer/refs/heads/main/images/survivalservers_banner.png)](https://www.survivalservers.com/services/game_servers/valheim/?ref=vapok)
+
+</div>
 
 ## 🖱️ How It Works
 
