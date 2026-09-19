@@ -1,3 +1,10 @@
+# 2.0.7 - Headless Dedicated Server Bypass & Valheim 1.0.15 Alignment
+* **Dedicated Server Safety**:
+  * In `FastItemTransfer.cs`, added `SystemInfo.graphicsDeviceType == GraphicsDeviceType.Null` bypass at the start of `Awake()`, completely preventing client GUI patches from executing on headless dedicated servers.
+* **Valheim 1.0.15 Game Reference Alignment**:
+  * Updated game assembly bindings to target Valheim `1.0.15`.
+  * Internalized `Vapok.Valheim.Common` v3.13.1015.
+
 # 2.0.6 - Splash Window Updates & Valheim 1.0.14 Alignment
 * **Splash Window Updates**:
   * Updated telemetry default to unchecked on first launch (Opt-In).

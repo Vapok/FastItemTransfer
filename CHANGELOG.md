@@ -1,13 +1,17 @@
-# 2.0.6 - Splash Window Updates & Valheim 1.0.14 Alignment
+# 2.0.7 - Headless Dedicated Server Bypass & Valheim 1.0.15 Alignment
+* **Headless Dedicated Server Bypass**: Added an early exit check during `Awake()` on headless dedicated servers to prevent client GUI right-click transfer hooks from loading on servers without graphics devices.
+* **Valheim 1.0.15 Alignment**: Updated all game assembly references and internalized `Vapok.Valheim.Common` 3.13.1015.
+
+<details>
+<summary><b>2.0 Changelog History (Valheim Release)</b> (<i>click to expand</i>)</summary>
+
+### 2.0.6 - Splash Window Updates & Valheim 1.0.14 Alignment
 * **Splash Window Updates**:
   * Telemetry is now unchecked when first loaded (Opt-In visibility)
   * Added Send Error Logs (Opt-Out)
   * Privacy Policy is now available directly in-game
   * Added Data Disclaimers on hover over checkboxes for transparency on what data is sent
 * **Valheim 1.0.14 Alignment**: Updated game assembly references and internalized  3.12.1014.
-
-<details>
-<summary><b>2.0 Changelog History (Valheim Release)</b> (<i>click to expand</i>)</summary>
 
 
 ### 2.0.5 - Jewelcrafting Font Compatibility

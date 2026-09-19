@@ -3,6 +3,7 @@ using System;
 using System.Reflection;
 using BepInEx;
 using HarmonyLib;
+using UnityEngine;
 using FastItemTransfer.Configuration;
 using FastItemTransfer.Features;
 using Jotunn.Managers;
@@ -23,7 +24,7 @@ namespace FastItemTransfer
         //Module Constants
         private const string _pluginId = "vapok.mods.fastitemtransfer";
         private const string _displayName = "Fast Item Transfer";
-        private const string _version = "2.0.6";
+        private const string _version = "2.0.7";
         
         //Interface Properties
         public string PluginId => _pluginId;
@@ -45,6 +46,11 @@ namespace FastItemTransfer
         // This the main function of the mod. BepInEx will call this.
         private void Awake()
         {
+            if (SystemInfo.graphicsDeviceType == UnityEngine.Rendering.GraphicsDeviceType.Null)
+            {
+                return;
+            }
+
             //I'm awake!
             _instance = this;
             
