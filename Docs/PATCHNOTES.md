@@ -1,3 +1,10 @@
+# 2.0.8 - Internalized Library & Dependency Updates
+* **Dependency Updates**:
+  * Updated internalized `Vapok.Valheim.Common` to 3.17.1015.
+  * Updated `JotunnLib` dependency to 2.30.2.
+* **Stability & Verification**:
+  * Confirmed headless dedicated server isolation and verified UI compatibility.
+
 # 2.0.7 - Headless Dedicated Server Bypass & Valheim 1.0.15 Alignment
 * **Dedicated Server Safety**:
   * In `FastItemTransfer.cs`, added `SystemInfo.graphicsDeviceType == GraphicsDeviceType.Null` bypass at the start of `Awake()`, completely preventing client GUI patches from executing on headless dedicated servers.
