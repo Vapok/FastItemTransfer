@@ -1,5 +1,5 @@
-# 2.0.8 - Internalized Library & Dependency Updates
-* **Library Updates**: Updated internalized `Vapok.Valheim.Common` to 3.17.1015 and `Jotunn` to 2.30.2.
+# 2.0.8 - Dependency Updates & Dedicated Server Safeguards
+* **Dependency Updates**: Updated Jotunn to 2.30.2 and internal dependencies for stability.
 * **Stability**: Verified headless dedicated server bypass and game client compatibility.
 
 <details>
