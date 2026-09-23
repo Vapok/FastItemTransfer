@@ -1,6 +1,7 @@
 # 2.0.8 - Dependency Updates & Dedicated Server Safeguards
-* **Dependency Updates**: Updated Jotunn to 2.30.2 and internal dependencies for stability.
+* **Game Shutdown**: Cleaned up game shutdown routines to prevent harmless errors in the log when exiting the game.
 * **Stability**: Verified headless dedicated server bypass and game client compatibility.
+* **Dependency Updates**: Updated Jotunn to 2.30.2 and internal dependencies for stability.
 
 <details>
 <summary><b>2.0 Changelog History (Valheim Release)</b> (<i>click to expand</i>)</summary>
