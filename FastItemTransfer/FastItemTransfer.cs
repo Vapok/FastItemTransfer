@@ -46,7 +46,7 @@ namespace FastItemTransfer
         // This the main function of the mod. BepInEx will call this.
         private void Awake()
         {
-            if (SystemInfo.graphicsDeviceType == UnityEngine.Rendering.GraphicsDeviceType.Null)
+            if (GUIManager.IsHeadless())
             {
                 return;
             }
@@ -58,7 +58,7 @@ namespace FastItemTransfer
             Waiter = new Waiting();
             
             //Jotunn Localization
-            var localization = LocalizationManager.Instance.GetLocalization();
+            Jotunn.Entities.CustomLocalization localization = LocalizationManager.Instance.GetLocalization();
 
             //Register Logger
             LogManager.Init(PluginId,out _log);

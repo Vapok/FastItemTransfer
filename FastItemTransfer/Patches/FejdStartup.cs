@@ -1,19 +1,21 @@
-﻿using HarmonyLib;
+using HarmonyLib;
+using Jotunn.Managers;
 
 namespace FastItemTransfer.Patches;
 
-public class FejdStartupPatches
+internal static class FejdStartupPatches
 {
-
     [HarmonyPatch(typeof(FejdStartup), nameof(FejdStartup.Awake))]
     [HarmonyAfter("org.bepinex.helpers.LocalizationManager")]
     [HarmonyBefore("org.bepinex.helpers.ItemManager")]
-    public static class FejdStartupAwakePatch
+    internal static class FejdStartupAwakePatch
     {
-        static void Prefix()
+        [HarmonyPrepare]
+        private static bool Prepare() => !GUIManager.IsHeadless();
+
+        private static void Prefix()
         {
             FastItemTransfer.Waiter.ValheimIsAwake(true);
         }
     }
-
 }

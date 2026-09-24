@@ -1,8 +1,10 @@
-﻿using System;
+using System;
+using BepInEx;
 using BepInEx.Bootstrap;
 using BepInEx.Configuration;
 using FastItemTransfer.Configuration;
 using HarmonyLib;
+using Jotunn.Managers;
 using UnityEngine;
 using Vapok.Common.Managers.Configuration;
 using Vapok.Common.Shared;
@@ -41,7 +43,7 @@ public static class QuickTransfer
     {
         if (!_abpChecked)
         {
-            if (Chainloader.PluginInfos.TryGetValue("vapok.mods.adventurebackpacks", out var pluginInfo) && pluginInfo?.Instance != null)
+            if (Chainloader.PluginInfos.TryGetValue("vapok.mods.adventurebackpacks", out PluginInfo pluginInfo) && pluginInfo != null && pluginInfo.Instance != null)
             {
                 pluginInfo.Instance.Config.TryGetEntry("Local Config", "Enable Quick Right Click Item Transfer", out _abpQuickTransferEntry);
                 _abpChecked = _abpQuickTransferEntry != null;
@@ -72,9 +74,12 @@ public static class QuickTransfer
 
     [HarmonyPatch(typeof(InventoryGui), nameof(InventoryGui.OnRightClickItem))]
     [HarmonyPriority(Priority.First)]
-    static class OnRightClickItemPatch
+    internal static class OnRightClickItemPatch
     {
-        static void Prefix(InventoryGui __instance, InventoryGrid grid, ItemDrop.ItemData item)
+        [HarmonyPrepare]
+        private static bool Prepare() => !GUIManager.IsHeadless();
+
+        private static void Prefix(InventoryGui __instance, InventoryGrid grid, ItemDrop.ItemData item)
         {
             if (!FeatureInitialized)
                 return;
@@ -94,8 +99,8 @@ public static class QuickTransfer
             if (item.m_equipped)
                 return;
 
-            var containerInventory = __instance.m_currentContainer.GetInventory();
-            var playerInventory = Player.m_localPlayer.GetInventory();
+            Inventory containerInventory = __instance.m_currentContainer.GetInventory();
+            Inventory playerInventory = Player.m_localPlayer.GetInventory();
 
             if (playerInventory == null || containerInventory == null || grid == null)
                 return;
@@ -120,7 +125,7 @@ public static class QuickTransfer
             _processingRightClick = true;
         }
         
-        static void Finalizer(Exception __exception)
+        private static void Finalizer(Exception __exception)
         {
             _processingRightClick = false;
             _toInventory = null;
@@ -131,9 +136,12 @@ public static class QuickTransfer
     
     [HarmonyPatch(typeof(Humanoid), nameof(Humanoid.UseItem))]
     [HarmonyPriority(Priority.First)]
-    static class UseItemPatch
+    internal static class UseItemPatch
     {
-        static bool Prefix(ItemDrop.ItemData item)
+        [HarmonyPrepare]
+        private static bool Prepare() => !GUIManager.IsHeadless();
+
+        private static bool Prefix(ItemDrop.ItemData item)
         {
             if (!_processingRightClick)
                 return true;

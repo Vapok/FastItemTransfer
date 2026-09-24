@@ -1,8 +1,12 @@
 # 2.0.8 - Internalized Library & Dependency Updates
 * **Shutdown Cleanliness (`FastItemTransfer.cs`)**:
   * Removed `_harmony?.UnpatchSelf()` from `OnDestroy()` to avoid Mono dynamic method inspection `InvalidOperationException` during application exit under Unity 6.
+* **Server Hardening & Best Practices**:
+  * Standardized headless detection to `GUIManager.IsHeadless()` in `FastItemTransfer.cs`.
+  * Added `[HarmonyPrepare]` returning `!GUIManager.IsHeadless()` across `OnRightClickItemPatch`, `UseItemPatch`, and `FejdStartupAwakePatch`.
+  * Scoped patch classes to `internal static` and enforced explicit typing across `QuickTransfer.cs`.
 * **Dependency Updates**:
-  * Updated internalized `Vapok.Valheim.Common` to 3.19.1015.
+  * Updated internalized `Vapok.Valheim.Common` to 3.21.1015.
   * Updated `JotunnLib` dependency to 2.30.2.
 * **Stability & Verification**:
   * Confirmed headless dedicated server isolation and verified UI compatibility.
