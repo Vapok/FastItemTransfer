@@ -1,3 +1,8 @@
+# 2.0.9 - Dependency Updates & Stability
+* **Library Updates**:
+  * Internalized `Vapok.Valheim.Common` 3.22.1016.
+  * Updated game assembly references to 1.0.16.
+
 # 2.0.8 - Internalized Library & Dependency Updates
 * **Shutdown Cleanliness (`FastItemTransfer.cs`)**:
   * Removed `_harmony?.UnpatchSelf()` from `OnDestroy()` to avoid Mono dynamic method inspection `InvalidOperationException` during application exit under Unity 6.
