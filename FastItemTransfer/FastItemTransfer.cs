@@ -73,7 +73,6 @@ namespace FastItemTransfer
             {
                 Tagline = "Fast one-click inventory and container item transfers for seamless chest management.",
                 ShowOnStartup = ConfigRegistry.ShowSplashOnStartup,
-                EnableTelemetry = ConfigRegistry.EnableTelemetry,
             });
 
             Localizer.Waiter.StatusChanged += InitializeModule;
