@@ -24,7 +24,7 @@ namespace FastItemTransfer
         //Module Constants
         private const string _pluginId = "vapok.mods.fastitemtransfer";
         private const string _displayName = "Fast Item Transfer";
-        private const string _version = "2.0.9";
+        private const string _version = "2.0.10";
         
         //Interface Properties
         public string PluginId => _pluginId;
