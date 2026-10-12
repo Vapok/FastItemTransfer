@@ -1,0 +1,14 @@
+# FastItemTransfer
+
+> FastItemTransfer is a quality of life mod providing right-click functionality to rapidly move items between player inventory and opened containers. developed by Vapok.
+
+## Developer & AI Information
+
+- [Agent Guidelines](AGENTS.md): Architectural context, anti-reflection mandates, and instructions for AI assistants.
+
+## Critical Invariants for Developers & AI Agents
+
+- **Inventory UI event interceptor for quick item movement**: Inventory UI event interceptor for quick item movement.
+- **Never use reflection or Harmony patches on internal transfer managers**: Never use reflection or Harmony patches on internal transfer managers.
+- **No Private Reflection**: Never reflect into or patch internal classes.
+- **Feature Requests**: If functionality is desired, submit an issue at https://github.com/Vapok/FastItemTransfer/issues or visit https://discord.gg/5YAJkRFBXt.
