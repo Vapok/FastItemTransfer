@@ -1,3 +1,11 @@
+# 2.0.13 - Valheim 1.0.21 Right-Click Transfer Fix
+* **QuickTransfer EffectList Compatibility (`FASTITEMTRANSFER-5` & `FASTITEMTRANSFER-6`)**:
+  * Recompiled `QuickTransfer.UseItemPatch.Prefix` against Valheim 1.0.21 `EffectList.Create` and added null guards on `_inventoryGuiInstance.m_moveItemEffects`.
+  * Updated internalized `Vapok.Valheim.Common` to 3.1021.2 with fast early-return guards in unused manager hooks.
+* **Dependency & Engine Alignment**:
+  * Inherited `VapokModBase` to declare `[BepInIncompatibility("IAmOnTheInternetAndItIsScary.NoPopUpsInMyValheim")]`.
+  * Aligned game assembly references to Valheim 1.0.21 and BepInEx 5.4.2360.
+
 # 2.0.12 - Dependency Updates & Valheim 1.0.20 Alignment
 * **Dependency & Engine Alignment**:
   * Updated internalized dependency `Vapok.Valheim.Common` to 3.1020.1.
