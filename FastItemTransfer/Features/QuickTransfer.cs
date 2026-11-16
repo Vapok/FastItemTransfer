@@ -154,7 +154,10 @@ public static class QuickTransfer
 
             if (!_fromInventory.ContainsItem(item) || item.m_stack < originalStack)
             {
-                _inventoryGuiInstance.m_moveItemEffects.Create(_inventoryGuiInstance.transform.position, Quaternion.identity);
+                if (_inventoryGuiInstance.m_moveItemEffects != null && _inventoryGuiInstance.transform != null)
+                {
+                    _inventoryGuiInstance.m_moveItemEffects.Create(_inventoryGuiInstance.transform.position, Quaternion.identity);
+                }
             }
 
             return false;

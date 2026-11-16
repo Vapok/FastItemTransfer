@@ -105,6 +105,24 @@ Say goodbye to tedious drag-and-drop inventory sorting! **Fast Item Transfer** g
 * ⚠️ **Integration Policy**: FastItemTransfer is a self-contained mod without a public API. Do not use reflection or Harmony patches on internal classes.
 * 💡 **Feature Requests**: If you need integration hooks or functionality, open a [Feature Request](https://github.com/Vapok/FastItemTransfer/issues) or reach out in our [Discord](https://discord.gg/5YAJkRFBXt).
 
+---
+
+## 🤖 AI Disclosure & Transparency Audit
+
+In accordance with mod store's various AI policies, below is the full transparency breakdown for **FastItemTransfer**:
+
+* **Audit Status**: `AI ASSISTED`
+* **Weighted LLM Score**: `17.0%`
+
+| Category | Evaluated Surface | LLM Score | Status |
+| :--- | :--- | :--- | :--- |
+| **C# Assembly & Logic** | Decompiled C# source (83 files) | `0.0%` | Evaluated C# codebase of 6 substantive author files (273 lines): 0% LLM-assisted idioms detected, representing clean human authoring. |
+| **Package Manifest & Structure** | Manifest, structure & icon (v2.0.13) | `0.0%` | Evaluated manifest.json and icon.png: valid manifest with authentic desktop image-editor composite icon (Case A, 0.0% AI score). |
+| **Documentation & Copywriting** | Package documentation (6925 chars) | `85.0%` | Evaluated README.md: highly polished LLM-structured documentation featuring emoji headers, detailed compatibility tables, and markdown badges. |
+| **Visual & Audio Media** | In-package Unity & media assets | `0.0%` | Evaluated in-package media: code-only mod with zero in-mod UnityFS AssetBundles, embedded textures, or audio files. |
+
+---
+
 ## 🔒 Anonymous Telemetry, Error Reporting & Privacy
 
 FastItemTransfer includes lightweight, privacy-first telemetry and error reporting to help monitor mod stability, diagnose unhandled bugs, and track active version adoption across game updates.

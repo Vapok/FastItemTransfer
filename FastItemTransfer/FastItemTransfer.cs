@@ -19,12 +19,12 @@ namespace FastItemTransfer
     [BepInPlugin(_pluginId, _displayName, _version)]
     [BepInDependency(Jotunn.Main.ModGuid)]
     [BepInDependency("com.ValheimModding.YamlDotNetDetector")]
-    public class FastItemTransfer : BaseUnityPlugin, IPluginInfo
+    public class FastItemTransfer : VapokModBase, IPluginInfo
     {
         //Module Constants
         private const string _pluginId = "vapok.mods.fastitemtransfer";
         private const string _displayName = "Fast Item Transfer";
-        private const string _version = "2.0.12";
+        private const string _version = "2.0.13";
         
         //Interface Properties
         public string PluginId => _pluginId;
