@@ -1,3 +1,8 @@
+# 2.0.14 - Valheim 1.0.30 Update & Dependency Alignment
+* **Dependency & Engine Alignment**:
+  * Updated internalized dependency `Vapok.Valheim.Common` to 3.1030.1.
+  * Aligned game assembly references to Valheim 1.0.30.
+
 # 2.0.13 - Valheim 1.0.21 Right-Click Transfer Fix
 * **QuickTransfer EffectList Compatibility (`FASTITEMTRANSFER-5` & `FASTITEMTRANSFER-6`)**:
   * Recompiled `QuickTransfer.UseItemPatch.Prefix` against Valheim 1.0.21 `EffectList.Create` and added null guards on `_inventoryGuiInstance.m_moveItemEffects`.
